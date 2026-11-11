@@ -1,7 +1,8 @@
 # Implementation status — 2026-11-11
 
-This is a standalone 0.1.0 software MVP on `feat/initial-implementation`. No remote was
-created or pushed, and no printer project was modified. The original specification's
+This is a standalone 0.1.0 software MVP on `feat/initial-implementation`, published privately
+on GitHub with draft PR #1. Main contains the approved MIT license bootstrap. No printer
+project was modified. The original specification's
 hardware acceptance criteria remain separate from software validation.
 
 | Phase | Components / primary files | Actual checkpoint evidence | Remaining |
@@ -20,7 +21,9 @@ Mypy (25 source files), editable installation, source/wheel builds, an isolated 
 wheel capture, all four examples, full-resolution throughput and concurrent snapshot stress
 passed. The wheel typing marker and source-distribution docs/tests were inspected. CI is
 configured for Linux and macOS across Python 3.10/3.12/3.13; remote CI was not run in this
-session. Runner architecture is reported by CI, not inferred from its OS label. Native arm64
+local checkpoint. Remote results are now tracked in
+[GitHub Actions](https://github.com/stefberends/scientific-camera-capture/actions).
+Runner architecture is reported by CI, not inferred from its OS label. Native arm64
 and Intel camera validation remain outstanding. See device-compatibility.md for precise tests.
 
 Important decisions: dependency-free core; immutable owned raw bytes; bounded queues/ring;

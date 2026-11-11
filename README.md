@@ -59,7 +59,7 @@ Read [architecture/API](docs/architecture.md), [recording format](docs/recording
 [implementation status](docs/implementation-status.md).
 
 Original code is MIT licensed. Aravis is a separately installed LGPL-2.1-or-later dependency.
-No printer repository, proprietary SDK binaries, remote repository, upload or system permission
-changes are involved. Hardware acceptance, 30-minute recording, both native Mac architectures,
+The library imports no printer repository or proprietary SDK binaries and performs no uploads
+or system permission changes. Hardware acceptance, 30-minute recording, both native Mac architectures,
 and independent IDS grouped decoding require physical validation before any v1.0 claim.
 

@@ -3,7 +3,7 @@
 | Host / camera | Evidence | Status |
 | --- | --- | --- |
 | Intel macOS 15.8.1, Python 3.12.3 / simulator | local tests, CLI, build, stress reports | SOFTWARE TESTED |
-| Linux Python 3.10 / 3.12 / 3.13 / simulator | CI matrix configured; not run remotely here | NOT TESTED HERE |
+| Linux Python 3.10 / 3.12 / 3.13 / simulator | unit tests/lint/type checks/build passed in initial GitHub CI; see Actions for complete job results | SOFTWARE TESTED |
 | macOS arm64 / simulator | no native arm64 host tested; CI logs actual runner architecture | NOT TESTED HERE |
 | Aravis 0.8 GI runtime / either architecture | upstream example/docs reviewed; local GI absent | BINDING EXECUTION NOT TESTED |
 | IDS U3-38L1XLS-C Rev. 1.2 / Intel or arm64 macOS | no physical device/native runtime | NOT HARDWARE VERIFIED |

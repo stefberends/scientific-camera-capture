@@ -4,7 +4,7 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-14]
+        os: [ubuntu-latest, macos-latest]
         python: ['3.10', '3.12', '3.13']
     runs-on: ${{ matrix.os }}
     steps:
@@ -23,4 +23,4 @@ jobs:
           /tmp/scicam-wheel-smoke/bin/pip install --no-deps dist/*.whl
           /tmp/scicam-wheel-smoke/bin/python -c "from scientific_camera import CameraManager; c=CameraManager().open('simulated'); assert c.capture_single().frame.payload; c.close()"
       - run: scicam doctor
-      - run: scicam benchmark --camera simulated --width 640 --height 480 --fps 100 --seconds 2 --json
+      - run: scicam benchmark --camera simulated --width 640 --height 480 --fps 100 --seconds 2 --queue-frames 256 --memory-mb 96 --json

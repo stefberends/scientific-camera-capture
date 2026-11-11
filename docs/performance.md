@@ -47,6 +47,10 @@ recording. On hardware, first inspect supported formats and actual readback, the
 modes and both Mac architectures remain NOT TESTED here. Keep all counters whose meanings
 are unverified unknown; frame-ID gaps alone do not prove the number of missing exposures.
 
+The CI benchmark is a two-second functional burst on shared storage, with a bounded
+256-frame/96 MiB writer queue to absorb runner fsync stalls. It does not establish sustained
+disk throughput. Smaller-queue saturation remains an explicit, tested failure mode.
+
 Memory consists of the native pool, bounded recorder queue (including in-flight frames),
 retention ring, at most configured concurrent pinned snapshot payloads, one received frame,
 and optional downstream conversions. Shared frame references avoid duplicating payloads,
