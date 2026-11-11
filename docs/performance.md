@@ -30,7 +30,7 @@ receive-rate windows and checksum readback duration. Export timing is unknown (`
 no export was performed. Stress reports include each snapshot latency. Temporary raw data
 is removed after checksum and reference verification on successful runs, avoiding huge
 repository artifacts. Failed temporary benchmarks are also cleaned up; use CLI `--output`
-to retain partial recordings for investigation. CPU time covers capture plus readback;
+to retain partial recordings for investigation. CPU time covers setup, capture and readback;
 capture duration and checksum readback duration are reported separately.
 
 ```sh

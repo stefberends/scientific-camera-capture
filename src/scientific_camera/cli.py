@@ -203,6 +203,10 @@ def _run_capture(args, camera) -> dict:
                         segment_bytes=int(args.segment_mb * 1024 * 1024),
                     ),
                 )
+            # Requested capture time starts after configuration, allocation and disk setup.
+            started = time.monotonic()
+            previous_time = started
+            previous_count = stream.stats().delivered_frames
             while time.monotonic() - started < args.seconds:
                 if stream._error:
                     raise stream._error

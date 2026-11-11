@@ -107,3 +107,25 @@ assert "gi" not in sys.modules and "numpy" not in sys.modules
         [sys.executable, "-S", "-c", script], capture_output=True, text=True, timeout=10
     )
     assert result.returncode == 0, result.stderr
+
+
+def test_record_duration_excludes_slow_writer_setup(monkeypatch, tmp_path, capsys):
+    import time
+
+    from scientific_camera.cli import main
+    from scientific_camera.session import AcquisitionSession
+
+    original = AcquisitionSession.start_recording
+
+    def delayed_setup(self, *args, **kwargs):
+        time.sleep(0.2)
+        return original(self, *args, **kwargs)
+
+    monkeypatch.setattr(AcquisitionSession, "start_recording", delayed_setup)
+    assert (
+        main(["record", "--output", str(tmp_path / "slow-setup.scc"), "--seconds", "0.1", "--json"])
+        == 0
+    )
+    report = json.loads(capsys.readouterr().out)
+    assert report["stats"]["recorded_frames"] > 0
+    assert report["duration_seconds"] >= 0.1

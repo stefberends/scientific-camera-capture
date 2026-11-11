@@ -16,14 +16,16 @@ hardware acceptance criteria remain separate from software validation.
 | 6 | full-resolution simulator benchmark and concurrent snapshots, saved reports | exact checksum/reference readback; performance.md reports measurements and overload limitation | physical high-speed tuning, sync/async comparison, second camera BLOCKED by equipment/runtime |
 | 7 | CLI tests, actual process crash, repair link audit, examples, packaging, typed marker, docs | final local checks described below | v1.0 release/API freeze deferred until hardware acceptance |
 
-Final local result: **55 passed, 1 hardware test skipped** (8.60 seconds). Ruff lint/format,
+Final local result: **56 passed, 1 hardware test skipped** (8.81 seconds). Ruff lint/format,
 Mypy (25 source files), editable installation, source/wheel builds, an isolated dependency-free
 wheel capture, all four examples, full-resolution throughput and concurrent snapshot stress
 passed. The wheel typing marker and source-distribution docs/tests were inspected. CI is
 configured for Linux and macOS across Python 3.10/3.12/3.13; remote CI was not run in this
 local checkpoint. Remote results are now tracked in
 [GitHub Actions](https://github.com/stefberends/scientific-camera-capture/actions).
-Runner architecture is reported by CI, not inferred from its OS label. Native arm64
+The capture timer now starts after writer setup; a regression test injects slow setup to
+ensure a short requested capture still records frames. Runner architecture is reported by
+CI, not inferred from its OS label. Native arm64
 and Intel camera validation remain outstanding. See device-compatibility.md for precise tests.
 
 Important decisions: dependency-free core; immutable owned raw bytes; bounded queues/ring;
