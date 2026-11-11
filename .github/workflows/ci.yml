@@ -1,0 +1,26 @@
+name: software
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ['3.10', '3.12', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e '.[dev]'
+      - run: python -c "import platform; print(platform.platform(), platform.machine())"
+      - run: pytest
+      - run: ruff check .
+      - run: mypy src
+      - run: python -m build
+      - run: |
+          python -m venv /tmp/scicam-wheel-smoke
+          /tmp/scicam-wheel-smoke/bin/pip install --no-deps dist/*.whl
+          /tmp/scicam-wheel-smoke/bin/python -c "from scientific_camera import CameraManager; c=CameraManager().open('simulated'); assert c.capture_single().frame.payload; c.close()"
+      - run: scicam doctor
+      - run: scicam benchmark --camera simulated --width 640 --height 480 --fps 100 --seconds 2 --queue-frames 256 --memory-mb 96 --json
