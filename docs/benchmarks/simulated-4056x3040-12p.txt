@@ -1,0 +1,3 @@
+simulated: 56 received, 53 written
+18.45 received fps; 323.02 MB/s; verified
+This is an observation, not hardware certification. See JSON for losses and clocks.

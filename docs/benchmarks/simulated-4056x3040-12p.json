@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "backend": "simulated",
+  "camera": {
+    "id": "simulated",
+    "backend": "simulated",
+    "vendor": "Scientific Camera",
+    "model": "Deterministic simulator",
+    "serial": "SIM-0001",
+    "transport": "simulated",
+    "display_label": "Simulated Mono/Bayer camera"
+  },
+  "configuration": {
+    "width": 4056,
+    "height": 3040,
+    "offset_x": 0,
+    "offset_y": 0,
+    "pixel_format": "BayerRG12p",
+    "exposure_us": 1000.0,
+    "gain": 0.0,
+    "gain_unit": "dB",
+    "frame_rate": 18.2,
+    "acquisition_mode": "Continuous",
+    "trigger_mode": "Off",
+    "trigger_source": "Software",
+    "trigger_selector": "FrameStart",
+    "trigger_activation": "RisingEdge"
+  },
+  "hardware_verified": false,
+  "host": {
+    "os": "macOS-15.8.1-x86_64-i386-64bit",
+    "architecture": "x86_64",
+    "python": "3.12.3 (v3.12.3:f6650f9ad7, Apr  9 2024, 08:18:48) [Clang 13.0.0 (clang-1300.0.29.30)]"
+  },
+  "duration_seconds": 3.0349214729994856,
+  "windows": [
+    {
+      "elapsed_seconds": 1.008877959999154,
+      "received_fps": 18.832803127165086
+    },
+    {
+      "elapsed_seconds": 2.016275562998999,
+      "received_fps": 17.86782095410919
+    }
+  ],
+  "stats": {
+    "delivered_frames": 56,
+    "complete_frames": 56,
+    "incomplete_frames": 0,
+    "recorded_frames": 53,
+    "enqueued_frames": 53,
+    "device_reported_losses": 0,
+    "transport_reported_losses": 0,
+    "transport_buffer_failures": null,
+    "transport_buffer_underruns": null,
+    "frame_id_gaps": 0,
+    "frame_id_discontinuities": 0,
+    "application_drops": 0,
+    "deliberately_discarded": 3,
+    "retention_evictions": 53,
+    "snapshot_failures": 0,
+    "preview_skips": 0,
+    "queue_high_water_mark": 3,
+    "actual_fps": 18.45358858459469,
+    "recorded_bytes": 980254080,
+    "disk_mb_s": 323.0215267980423,
+    "integrity": "verified",
+    "errors": []
+  },
+  "nominal_fps": 18.2,
+  "cpu_seconds": 1.619831,
+  "peak_rss_bytes": 114343936,
+  "image_export_seconds": null,
+  "recording_validation": {
+    "schema_version": 1,
+    "state": "complete",
+    "frames": 53,
+    "bytes": 980254080,
+    "incomplete_frames": 0,
+    "checksum_validation": true,
+    "camera": {
+      "backend": "simulated",
+      "display_label": "Simulated Mono/Bayer camera",
+      "id": "simulated",
+      "model": "Deterministic simulator",
+      "serial": "SIM-0001",
+      "transport": "simulated",
+      "vendor": "Scientific Camera"
+    }
+  },
+  "readback_seconds": 0.5202177209994261,
+  "recording": {
+    "schema_version": 1,
+    "state": "complete",
+    "recorded_frames": 53,
+    "recorded_bytes": 980254080,
+    "duration_seconds": 2.9939447969991306,
+    "disk_mb_s": 327.41220913041593,
+    "error": null,
+    "stats": {
+      "delivered_frames": 55,
+      "complete_frames": 55,
+      "incomplete_frames": 0,
+      "recorded_frames": 53,
+      "enqueued_frames": 53,
+      "device_reported_losses": 0,
+      "transport_reported_losses": 0,
+      "transport_buffer_failures": null,
+      "transport_buffer_underruns": null,
+      "frame_id_gaps": 0,
+      "frame_id_discontinuities": 0,
+      "application_drops": 0,
+      "deliberately_discarded": 2,
+      "retention_evictions": 52,
+      "snapshot_failures": 0,
+      "preview_skips": 0,
+      "queue_high_water_mark": 3,
+      "actual_fps": 18.303058378687453,
+      "recorded_bytes": 980254080,
+      "disk_mb_s": 326.2117754943011,
+      "integrity": "verified",
+      "errors": []
+    }
+  },
+  "usb_mode": "Aravis build default",
+  "retained_output": null
+}
